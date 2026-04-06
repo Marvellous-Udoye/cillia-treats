@@ -1,61 +1,16 @@
-import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
-import { MotionPathPlugin } from "gsap/MotionPathPlugin";
-
-gsap.registerPlugin(MotionPathPlugin);
+import { useEffect, useState } from "react";
+import { ArrowRight, Instagram, Mail, PhoneCall } from "lucide-react";
 
 export default function Footer() {
-  const pathRef = useRef<SVGPathElement | null>(null);
-  const dotRef = useRef<SVGCircleElement | null>(null);
-  const glowRef = useRef<SVGCircleElement | null>(null);
   const [quoteIndex, setQuoteIndex] = useState(0);
 
   const quotes = [
-    "Precision in every pulse.",
-    "Designing silence that sings.",
-    "Engineering emotion into sound.",
+    "Baked for your sweetest moments.",
+    "Giftable treats for every celebration.",
+    "Small chops, cakes, pastries, and more.",
   ];
 
   useEffect(() => {
-    const path = pathRef.current;
-
-    if (!path || !dotRef.current || !glowRef.current) {
-      return;
-    }
-
-    const totalLength = path.getTotalLength();
-
-    path.style.strokeDasharray = String(totalLength);
-    path.style.strokeDashoffset = String(totalLength);
-
-    gsap.to(path, {
-      strokeDashoffset: 0,
-      duration: 5,
-      ease: "power2.inOut",
-      repeat: -1,
-      yoyo: true,
-    });
-
-    gsap.to(dotRef.current, {
-      motionPath: {
-        path: path,
-        align: path,
-        alignOrigin: [0.5, 0.5],
-      },
-      duration: 5,
-      ease: "linear",
-      repeat: -1,
-    });
-
-    gsap.to(glowRef.current, {
-      scale: 1.4,
-      opacity: 0.25,
-      duration: 1.6,
-      ease: "sine.inOut",
-      yoyo: true,
-      repeat: -1,
-    });
-
     const quoteTimer = setInterval(() => {
       setQuoteIndex((prev) => (prev + 1) % quotes.length);
     }, 4200);
@@ -63,89 +18,75 @@ export default function Footer() {
   }, [quotes.length]);
 
   return (
-    <footer className="w-full bg-[#0a0c10] text-gray-300 py-20 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="h-10 mb-10 flex items-center justify-center">
+    <footer className="w-full overflow-hidden bg-[#0a0c10] py-16 text-gray-300 md:py-20">
+      <div className="mx-auto max-w-6xl px-4 md:px-6">
+        <div className="mb-12 flex min-h-16 items-center justify-center md:h-10">
           <p
             key={quoteIndex}
-            className="text-lime-300 text-center text-5xl uppercase font-semibold italic tracking-wide transition-all duration-700 ease-in-out"
+            className="text-center text-2xl font-semibold font-head uppercase italic tracking-wide text-lime-300 transition-all duration-700 ease-in-out md:text-5xl"
             style={{
               animation: "fadeInOut 4.2s ease-in-out infinite",
             }}
           >
             {quotes[quoteIndex]}
           </p>
-        </div>
-        <div className="relative w-full h-44 md:h-36 mb-12">
-          <svg
-            viewBox="0 0 1200 240"
-            preserveAspectRatio="xMidYMid meet"
-            className="w-full h-full block"
-            aria-hidden="true"
-          >
-            <defs>
-              <linearGradient id="smoothFlow" x1="0" x2="1">
-                <stop offset="0%" stopColor="#84cc16" stopOpacity="1" />
-                <stop offset="50%" stopColor="#22d3ee" stopOpacity="0.9" />
-                <stop offset="100%" stopColor="#a855f7" stopOpacity="1" />
-              </linearGradient>
-              <filter id="glowBlur">
-                <feGaussianBlur stdDeviation="10" result="blur" />
-                <feMerge>
-                  <feMergeNode in="blur" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
-            </defs>
+        </div> 
 
-            <path
-              d="M0 150 C200 100, 400 200, 600 140 S1000 180, 1200 130"
-              fill="none"
-              stroke="rgba(255,255,255,0.04)"
-              strokeWidth="2"
-            />
-
-            <path
-              ref={pathRef}
-              d="M0 160 C300 90, 600 210, 900 130 S1200 170, 1400 140"
-              fill="none"
-              stroke="url(#smoothFlow)"
-              strokeWidth="3"
-              strokeLinecap="round"
-              filter="url(#glowBlur)"
-            />
-
-            <circle
-              ref={glowRef}
-              r="12"
-              fill="#bef264"
-              opacity="0.15"
-              style={{ filter: "blur(16px)" }}
-            />
-
-            <circle ref={dotRef} r="4" fill="#bef264" />
-          </svg>
+        <div className="relative z-10 mt-5 flex justify-center gap-4 md:mt-16">
+          <a href="#" className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/6 text-white transition hover:-translate-y-1 hover:bg-white/10">
+            <Instagram size={18} />
+          </a>
+          <a href="#" className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/6 text-white transition hover:-translate-y-1 hover:bg-white/10">
+            <PhoneCall size={18} />
+          </a>
+          <a href="#" className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/6 text-white transition hover:-translate-y-1 hover:bg-white/10">
+            <Mail size={18} />
+          </a>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
-            <div className="text-white font-semibold text-lg tracking-wide">
-              Sonique
+        <div className="mt-10 flex flex-col justify-between gap-10 px-1 text-sm font-medium text-milk md:mt-14 md:flex-row md:px-2 md:text-base">
+          <div className="flex flex-col gap-8 md:flex-row md:items-start md:gap-16">
+            <div>
+              <p className="mb-3 text-xs uppercase tracking-[0.3em] text-[#d7c1aa]">Browse</p>
+              <p>Cakes</p>
+              <p>Small Chops</p>
+              <p>Pastries</p>
             </div>
-            <div className="text-sm text-gray-400 mt-1">
-              Crafted for clarity • Tuned for life
+            <div>
+              <p className="mb-3 text-xs uppercase tracking-[0.3em] text-[#d7c1aa]">Occasions</p>
+              <p>Birthday Gifts</p>
+              <p>Valentine Packages</p>
+              <p>Corporate Hampers</p>
+            </div>
+            <div>
+              <p className="mb-3 text-xs uppercase tracking-[0.3em] text-[#d7c1aa]">Studio</p>
+              <p>Souvenirs</p>
+              <p>Gift Sets</p>
+              <p>Custom Orders</p>
             </div>
           </div>
 
-          <nav className="flex gap-6 text-sm text-gray-400">
-            <a href="" className="hover:text-white transition-colors">Products</a>
-            <a href="" className="hover:text-white transition-colors">About</a>
-            <a href="" className="hover:text-white transition-colors">Support</a>
-            <a href="" className="hover:text-white transition-colors">Contact</a>
-          </nav>
+          <div className="md:max-w-[36%]">
+            <p className="text-gray-300">
+              Open for celebrations, office orders, thoughtful gifting, and sweet cravings
+              that deserve better presentation and better flavour.
+            </p>
+            <div className="mt-5 flex items-center justify-between border-b border-[#d9d9d9]/40 py-4">
+              <input
+                type="email"
+                placeholder="Start an order inquiry"
+                className="w-full bg-transparent text-white placeholder:font-sans placeholder:text-[#999999] focus:outline-none"
+              />
+              <ArrowRight size={18} className="text-[#d7c1aa]" />
+            </div>
+          </div>
+        </div>
 
-          <div className="text-sm text-gray-500">
-            © {new Date().getFullYear()} Sonique
+        <div className="mt-10 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-gray-500 md:flex-row md:items-center md:justify-between">
+          <p>Copyright © {new Date().getFullYear()} Cillia Treats - All Rights Reserved</p>
+          <div className="flex items-center gap-7">
+            <p>Privacy Policy</p>
+            <p>Terms of Service</p>
           </div>
         </div>
       </div>

@@ -1,8 +1,7 @@
-import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
-import { LogIn } from "lucide-react";
+import { useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,6 +11,7 @@ export default function Header() {
 
   useGSAP(() => {
     const element = soniqueRef.current;
+    const mm = gsap.matchMedia();
 
     if (!element) {
       return;
@@ -27,77 +27,82 @@ export default function Header() {
         scale: 1,
         opacity: 1,
         duration: 1,
-      }
+      },
     );
 
-    gsap.fromTo(
-      element,
-      { scale: 1, x: "20%", y: 0 },
-      {
-        scale: 0.1,
-        x: "-35%",
-        y: -190,
-        scrollTrigger: {
-          trigger: element,
-          start: "top top",
-          end: "top+=100px top",
-          scrub: true,
+    mm.add("(min-width: 768px)", () => {
+      gsap.fromTo(
+        element,
+        { scale: 1, x: "20%", y: 0 },
+        {
+          scale: 0.1,
+          x: "-35%",
+          y: -190,
+          scrollTrigger: {
+            trigger: element,
+            start: "top top",
+            end: "top+=100px top",
+            scrub: true,
+          },
         },
-      }
-    );
+      );
 
-    gsap.fromTo(
-      ".sq",
-      { opacity: 1 },
-      {
-        opacity: 0,
-        scrollTrigger: {
-          trigger: ".sq",
-          start: "top top",
-          end: "top+=230",
-          scrub: true,
+      gsap.fromTo(
+        ".sq",
+        { opacity: 1 },
+        {
+          opacity: 0,
+          scrollTrigger: {
+            trigger: ".sq",
+            start: "top top",
+            end: "top+=230",
+            scrub: true,
+          },
         },
-      }
-    );
+      );
+    });
+
+    return () => mm.revert();
   }, []);
 
   return (
     <div
-      className={`p-3 w-full flex items-center justify-center transition-colors duration-500 backdrop-blur-2xl ${
+      className={`w-full transition-colors duration-500 backdrop-blur-2xl ${
         isHeroDark ? "bg-white text-black" : "bg-black text-white"
       }`}
     >
-      <div className="relative flex-1/4 w-full">
-        <span className="font-head sq text-2xl ms-20">SQ</span>
-        <p
-          ref={soniqueRef}
-          className={`font-bold uppercase -z-10 top-20 absolute text-[8.5em] pointer-events-none whitespace-nowrap ${
-            isHeroDark ? "text-black" : "text-white"
-          }`}
-        >
-          Cillia Treats 
-        </p>
-      </div>
+      <div className="flex flex-col gap-4 px-4 py-4 md:flex-row md:items-center md:justify-center md:p-3">
+        <div className="relative w-full md:flex-1/4">
+          <span className="sq text-xl md:ms-20 md:text-2xl">CT</span>
+          <p
+            ref={soniqueRef}
+            className={`font-head font-semibold uppercase pointer-events-none whitespace-nowrap text-[2.7rem] leading-none md:absolute md:-z-10 md:top-40 md:text-[9em] 2xl:text-[12em] ${
+              isHeroDark ? "text-black" : "text-white"
+            }`}
+          >
+            Cillia Treats
+          </p>
+        </div>
 
-      <div className="flex w-full flex-2/4 gap-10 text-sm justify-center items-center">
-        <a href="/">Brand</a>
-        <a href="/">Products</a>
-        <a href="/">About</a>
-        <a href="/">Support</a>
-        <a href="/">Blogs</a>
-      </div>
+        <div className="grid w-full grid-cols-2 gap-x-5 gap-y-2 pt-16 text-xs md:flex md:flex-2/4 md:items-center md:justify-center md:gap-10 md:pt-0 md:text-sm">
+          <a href="#cakes">Cakes</a>
+          <a href="#small-chops">Small Chops</a>
+          <a href="#pastries">Pastries</a>
+          <a href="#gift-sets">Gift Sets</a>
+          <a href="#corporate-orders">Corporate Orders</a>
+        </div>
 
-      <div className="flex-1/4 w-full flex justify-center items-center">
-        <button
-          className={`py-3 flex items-center justify-center gap-2 px-10 text-sm border rounded-md transition-colors duration-500 ${
-            isHeroDark
-              ? "border-black text-black"
-              : "border-white text-white"
-          }`}
-        >
-          <LogIn size={18} />
-          Login
-        </button>
+        <div className="flex w-full items-center md:w-full md:flex-1/4 md:justify-center">
+          <button
+            className={`flex w-full items-center justify-center gap-2 rounded-full border px-6 py-3 text-sm transition-colors duration-500 md:w-auto md:px-10 ${
+              isHeroDark
+                ? "border-black text-black"
+                : "border-white text-white"
+            }`}
+          >
+            Place Order
+          </button>
+        </div>
       </div>
     </div>
   );
