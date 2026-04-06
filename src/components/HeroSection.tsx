@@ -1,0 +1,129 @@
+import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
+import gsap from "gsap";
+import { AudioLines, Ear, LoaderPinwheel, MoveRight } from "lucide-react";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+export default function HeroSection() {
+  gsap.registerPlugin(ScrollTrigger);
+  const earbudsRef = useRef<HTMLImageElement | null>(null);
+
+  useGSAP(() => {
+    gsap.fromTo(
+      ".earbud-feature-card",
+      {
+        scale: 0,
+        opacity: 0,
+      },
+      {
+        scale: 1,
+        opacity: 1,
+      }
+    );
+
+    if (earbudsRef.current) {
+      gsap.fromTo(
+        earbudsRef.current,
+        { scale: 1, y: 0, opacity: 1 },
+        {
+          scale: 0.8,
+          x: 200,
+          scrollTrigger: {
+            trigger: earbudsRef.current,
+            start: "top top",
+            end: "bottom-=100px top",
+            pin: true,
+            scrub: true,
+          },
+        }
+      );
+    }
+
+    gsap.to(".HeroSection", {
+      scrollTrigger: {
+        trigger: ".HeroSection",
+        start: "bottom 200%",
+        end: "bottom+=100px top",
+        onEnter: () => console.log("Middle reached!"),
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    gsap.fromTo(
+      ".hero-secondary",
+      {
+        x: -200,
+        opacity: 0,
+        stagger: 0.2,
+      },
+      {
+        x: 0,
+        opacity: 1,
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: ".hero-secondary-container",
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+  }, []);
+
+  return (
+    <div className="HeroSection overflow-hidden h-300 w-full flex flex-col items-center justify-end">
+      <img
+        src="/imgs/earbuds.png"
+        ref={earbudsRef}
+        alt="earbuds"
+        className="absolute top-20 z-150 drop-shadow-2xl drop-shadow-lime-300"
+      />
+      <div className="shadow-sm py-3 px-10 absolute top-80 left-[10%] flex items-center gap-4 rounded-xl earbud-feature-card">
+        <img src="/imgs/earbud-feature-card-1.svg" alt="earbud-feature-card-icon text-sm" />
+        <span className="text-neutral-800 font-light italic">
+          45ms Gaming Mode <br /> Zero Distractions
+        </span>
+      </div>
+      <div className="shadow-sm py-3 px-10 absolute top-120 left-[20%] flex items-center gap-4 rounded-xl earbud-feature-card">
+        <img src="/imgs/earbud-feature-card-2.svg" alt="earbud-feature-card-icon text-sm" />
+        <span className="text-neutral-800 font-light italic">99.8% Signal Stability</span>
+      </div>
+      <div className="shadow-sm py-3 px-10 absolute top-90 right-[10%] flex items-center gap-4 rounded-xl earbud-feature-card">
+        <img src="/imgs/earbud-feature-card-3.svg" alt="earbud-feature-card-icon text-sm" />
+        <span className="text-neutral-800 font-light italic">
+          72-Hour Battery.
+          <br />
+          10-Min Quick Boost
+        </span>
+      </div>
+
+      <div className="w-full grid grid-cols-2 px-20 py-30">
+        <div className="w-full h-full flex flex-col gap-4 hero-secondary-container">
+          <h2 className="hero-secondary text-black text-8xl font-bold">Earbuds 109PX</h2>
+
+          <div className="flex items-center hero-secondary text-sm gap-2 flex-wrap">
+            <span className="bg-neutral-500 py-3 px-8 flex items-center gap-2 text-white rounded-full">
+              <Ear /> Noise Isolation
+            </span>
+            <span className="bg-neutral-500 py-3 px-8 flex items-center gap-2 text-white rounded-full">
+              <AudioLines /> Deep Bass
+            </span>
+            <span className="bg-neutral-500 py-3 px-8 flex items-center gap-2 text-white rounded-full">
+              <LoaderPinwheel /> Wireless Freedom
+            </span>
+          </div>
+
+          <p className="hero-secondary text-neutral-800">
+            From deep bass to crisp highs, every detail is delivered with stunning clarity.
+            Engineered for comfort and powered by cutting-edge drivers.
+          </p>
+
+          <button className="hero-secondary flex items-center justify-center gap-2 mt-5 py-3 px-10 border-1 max-w-60 border-black rounded-md text-black hover:bg-black hover:text-white">
+            Explore Product <MoveRight />
+          </button>
+        </div>
+
+        <div></div>
+      </div>
+    </div>
+  );
+}
