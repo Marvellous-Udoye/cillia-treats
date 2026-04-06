@@ -129,7 +129,7 @@ export default function Feature2() {
           </p>
           <div className="flex-1 flex justify-center">
             <img
-              src="/imgs/headphone-no-frame.svg"
+              src="/imgs/treat-6.png"
               alt=""
               className="float-img scroll-speed-1 w-[550px]"
             />
@@ -139,7 +139,7 @@ export default function Feature2() {
         <div className="div-sections flex flex-wrap p-6 items-center">
           <div className="flex-1 flex justify-center">
             <img
-              src="/imgs/earbuds-with-case.png"
+              src="/imgs/treat-5.png"
               alt=""
               className="float-img scroll-speed-1.5 w-[550px]"
             />
@@ -157,7 +157,7 @@ export default function Feature2() {
           </p>
           <div className="flex-1 flex justify-center">
             <img
-              src="/imgs/earbud-in-air.png"
+              src="/imgs/treat-1.png"
               alt=""
               className="float-img scroll-speed-2 w-[750px]"
             />

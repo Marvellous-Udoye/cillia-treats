@@ -106,7 +106,7 @@ export default function Feature() {
         </div>
       </div>
       <div className="w-full flex-1/2 flex items-center justify-center">
-        <img src="/imgs/headphone.svg" alt="headphone-image" className="max-w-[90vh] relative headphone-frame" />
+        <img src="/imgs/treat-7.png" alt="headphone-image" className="max-w-[90vh] relative headphone-frame" />
       </div>
     </div>
   );

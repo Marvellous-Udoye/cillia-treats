@@ -72,7 +72,7 @@ export default function HeroSection() {
   return (
     <div className="HeroSection overflow-hidden h-300 w-full flex flex-col items-center justify-end">
       <img
-        src="/imgs/earbuds.png"
+        src="/imgs/hero-bg.png"
         ref={earbudsRef}
         alt="earbuds"
         className="absolute top-20 z-150 drop-shadow-2xl drop-shadow-lime-300"
