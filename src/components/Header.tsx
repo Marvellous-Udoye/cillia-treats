@@ -57,7 +57,7 @@ export default function Header() {
               isMenuOpen ? "text-white" : "text-black"
             }`}
           >
-            <span>CILLIA</span>
+            <span>CILLA</span>
             <span>TREATS</span>
           </Link>
         </div>

@@ -197,7 +197,7 @@ export default function HeroSection() {
             isHeroDark ? "text-black" : "text-white"
           }`}
         >
-          Cillia Treats
+          Cilla Treats
         </p>
       </div>
 
@@ -249,7 +249,7 @@ export default function HeroSection() {
 
           <div className="hero-secondary md:max-w-2xl">
             <p className="text-center text-base leading-7 text-neutral-700 md:text-left">
-              Cillia Treats creates warm, memorable bites for birthdays, office
+              Cilla Treats creates warm, memorable bites for birthdays, office
               gifting, Valentine surprises, souvenirs, and everyday cravings,
               from buttercream cakes and doughnuts to parfaits, fries, chicken
               pies, and curated gift sets.

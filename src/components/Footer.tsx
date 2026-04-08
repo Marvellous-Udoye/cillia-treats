@@ -84,7 +84,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-gray-500 md:flex-row md:items-center md:justify-between">
-          <p>Copyright © {new Date().getFullYear()} Cillia Treats - All Rights Reserved</p>
+          <p>Copyright © {new Date().getFullYear()} Cilla Treats - All Rights Reserved</p>
           <div className="flex items-center gap-7">
             <p>Privacy Policy</p>
             <p>Terms of Service</p>

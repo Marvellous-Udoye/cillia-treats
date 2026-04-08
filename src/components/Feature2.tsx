@@ -320,7 +320,7 @@ export default function Feature2() {
         </h1>
         <div className="transition-overlay absolute left-[50%] top-0 z-50 flex h-full w-[72%] -translate-x-[50%] items-center justify-center bg-white px-4 md:w-[10%] md:-scale-5">
           <h1 className="text-center font-head text-3xl font-bold text-black uppercase rotate-180 md:text-7xl">
-            Cillia Treats
+            Cilla Treats
           </h1>
         </div>
       </section>
