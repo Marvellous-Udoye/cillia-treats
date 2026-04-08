@@ -316,10 +316,10 @@ export default function Feature2() {
 
       <section className="zoom-transition relative flex min-h-[70vh] items-center justify-center overflow-hidden bg-neutral-900 px-4 text-white md:h-screen md:min-h-0">
         <h1 className="zoom-text text-center font-head text-5xl uppercase md:text-8xl">
-          Wrapped in warmth
+          Wrapped in Love by
         </h1>
         <div className="transition-overlay absolute left-[50%] top-0 z-50 flex h-full w-[72%] -translate-x-[50%] items-center justify-center bg-white px-4 md:w-[10%] md:-scale-5">
-          <h1 className="text-center font-head text-3xl text-black uppercase rotate-180 md:text-5xl">
+          <h1 className="text-center font-head text-3xl font-bold text-black uppercase rotate-180 md:text-7xl">
             Cillia Treats
           </h1>
         </div>

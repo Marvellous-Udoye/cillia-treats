@@ -90,7 +90,7 @@ export default function Feature() {
       <div id="cakes" className="flex h-full max-w-2xl w-full mx-auto flex-1/2 flex-col items-center">
           <p className="feature-title-text relative font-bold text-4xl text-white md:text-6xl">
             Made to stand out on
-            <span className="text-lime-400"> every </span>
+            <span className="text-[#d94a63]"> every </span>
             table
           </p>
         <div className="feature-card-container mt-8 flex w-full max-w-2xl flex-col gap-4 md:mt-10">
@@ -100,7 +100,7 @@ export default function Feature() {
               key={index}
             >
               <div className="flex items-center gap-5">
-                <span className="flex h-11 w-11 items-center justify-center rounded-full border border-lime-400 bg-lime-400/10 text-lime-300">
+                <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[#d94a63] bg-[#b5162f]/10 text-[#f3a3b2]">
                   {index + 1}
                 </span>
                 <p className="feature-card-title font-bold text-xl">{item.title}</p>

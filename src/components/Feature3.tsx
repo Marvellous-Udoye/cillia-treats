@@ -110,7 +110,7 @@ export default function Feature3() {
   return (
     <section id="corporate-orders" className="Feature3 relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-white px-4 py-16 text-black md:px-10 md:py-20">
       <div className="mb-16 max-w-8xl text-center">
-        <h2 className="fade-up Feature3-title mb-4 font-head text-5xl tracking-tight md:text-9xl">
+        <h2 className="fade-up Feature3-title mb-4 font-semibold text-5xl tracking-tight md:text-9xl">
           CURATED TO DELIGHT
         </h2>
         <p className="fade-up mx-auto max-w-2xl text-lg text-gray-500">

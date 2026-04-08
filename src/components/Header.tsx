@@ -1,109 +1,163 @@
 import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useRef } from "react";
-
-gsap.registerPlugin(ScrollTrigger);
+import { ArrowUpRight, Menu, ShoppingBag } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import { createHeaderAnimations } from "../animation";
+import { overlayNavItems, primaryNavItems } from "../data/storefront-data";
+import { SiteContainer } from "./ui/site-container";
 
 export default function Header() {
-  const soniqueRef = useRef<HTMLParagraphElement | null>(null);
-  const isHeroDark = true;
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const scopeRef = useRef<HTMLElement | null>(null);
+  const animationRef = useRef<ReturnType<typeof createHeaderAnimations> | null>(
+    null,
+  );
 
-  useGSAP(() => {
-    const element = soniqueRef.current;
-    const mm = gsap.matchMedia();
+  useGSAP(
+    () => {
+      if (!scopeRef.current) return;
 
-    if (!element) {
-      return;
+      animationRef.current = createHeaderAnimations(scopeRef.current);
+
+      return () => {
+        animationRef.current?.revert();
+        animationRef.current = null;
+      };
+    },
+    { scope: scopeRef },
+  );
+
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? "hidden" : "";
+
+    if (isMenuOpen) {
+      animationRef.current?.openMenu();
+    } else {
+      animationRef.current?.closeMenu();
     }
 
-    gsap.fromTo(
-      element,
-      {
-        scale: 0,
-        opacity: 0,
-      },
-      {
-        scale: 1,
-        opacity: 1,
-        duration: 1,
-      },
-    );
-
-    mm.add("(min-width: 768px)", () => {
-      gsap.fromTo(
-        element,
-        { scale: 1, x: "20%", y: 0 },
-        {
-          scale: 0.1,
-          x: "-35%",
-          y: -190,
-          scrollTrigger: {
-            trigger: element,
-            start: "top top",
-            end: "top+=100px top",
-            scrub: true,
-          },
-        },
-      );
-
-      gsap.fromTo(
-        ".sq",
-        { opacity: 1 },
-        {
-          opacity: 0,
-          scrollTrigger: {
-            trigger: ".sq",
-            start: "top top",
-            end: "top+=230",
-            scrub: true,
-          },
-        },
-      );
-    });
-
-    return () => mm.revert();
-  }, []);
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
 
   return (
-    <div
-      className={`w-full transition-colors duration-500 backdrop-blur-2xl ${
-        isHeroDark ? "bg-white text-black" : "bg-black text-white"
+    <nav
+      ref={scopeRef}
+      id="nav"
+      className={`fixed inset-x-0 top-0 z-[120] overflow-hidden border-none backdrop-blur-sm transition-[height,background-color,backdrop-filter] duration-500 ${
+        isMenuOpen ? "h-screen bg-[#111318]" : "h-[108px]"
       }`}
     >
-      <div className="flex flex-col gap-4 px-4 py-4 md:flex-row md:items-center md:justify-center md:p-3">
-        <div className="relative w-full md:flex-1/4">
-          <span className="sq text-xl md:ms-20 md:text-2xl">CT</span>
-          <p
-            ref={soniqueRef}
-            className={`font-head font-semibold uppercase pointer-events-none whitespace-nowrap text-[2.7rem] leading-none md:absolute md:-z-10 md:top-40 md:text-[9em] 2xl:text-[12em] ${
-              isHeroDark ? "text-black" : "text-white"
+      <SiteContainer className="flex items-start justify-between px-[2vw] pt-[1.5vw] max-[500px]:p-[4vw]">
+        <div className="nav-part-1 flex flex-col gap-[15px] max-[1000px]:gap-[30px]">
+          <Link
+            to="/"
+            className={`wordmark flex flex-col font-brand text-[2.25rem] font-bold uppercase leading-[0.9] tracking-[-0.08em] transition-colors duration-300 max-[500px]:text-[1.5rem] ${
+              isMenuOpen ? "text-white" : "text-black"
             }`}
           >
-            Cillia Treats
-          </p>
+            <span>CILLIA</span>
+            <span>TREATS</span>
+          </Link>
         </div>
 
-        <div className="grid w-full grid-cols-2 gap-x-5 gap-y-2 pt-16 text-xs md:flex md:flex-2/4 md:items-center md:justify-center md:gap-10 md:pt-0 md:text-sm">
-          <a href="#cakes">Cakes</a>
-          <a href="#small-chops">Small Chops</a>
-          <a href="#pastries">Pastries</a>
-          <a href="#gift-sets">Gift Sets</a>
-          <a href="#corporate-orders">Corporate Orders</a>
-        </div>
+        <div className="nav-part-2 mt-4 flex items-start gap-[70px] max-[600px]:gap-[24px] max-[500px]:mt-2 max-[500px]:items-center max-[500px]:gap-[18px]">
+          {primaryNavItems.map((item) => (
+            <h4
+              className={`none cursor-pointer uppercase font-semibold font-brand transition-colors duration-300 max-[1000px]:hidden ${
+                isMenuOpen ? "text-white" : "text-black"
+              }`}
+              key={item.to}
+            >
+              <Link to={item.to}>{item.label}</Link>
+            </h4>
+          ))}
 
-        <div className="flex w-full items-center md:w-full md:flex-1/4 md:justify-center">
-          <button
-            className={`flex w-full items-center justify-center gap-2 rounded-full border px-6 py-3 text-sm transition-colors duration-500 md:w-auto md:px-10 ${
-              isHeroDark
-                ? "border-black text-black"
-                : "border-white text-white"
+          <h4
+            id="menu-expand"
+            className={`cursor-pointer flex items-center justify-center text-[20px] transition-colors duration-300 ${
+              isMenuOpen ? "hidden" : "text-black"
             }`}
           >
-            Place Order
-          </button>
+            <button
+              type="button"
+              aria-label="Open menu"
+              className="border-0 bg-transparent cursor-pointer font-bold font-brand p-0 text-inherit"
+              onClick={() => setIsMenuOpen(true)}
+            >
+              <Menu size={20} strokeWidth={2.2} />
+            </button>
+          </h4>
+
+          <h4
+            id="close"
+            className={`cursor-pointer text-white ${isMenuOpen ? "" : "hidden"}`}
+          >
+            <button
+              type="button"
+              aria-label="Close menu"
+              className="border-0 font-brand font-bold cursor-pointer bg-transparent p-0 text-inherit"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              X
+            </button>
+          </h4>
+
+          <h4
+            id="shop"
+            className={`cursor-pointer text-[20px] transition-colors duration-300 ${
+              isMenuOpen ? "text-white" : "text-black"
+            }`}
+          >
+            <Link to="/collections" aria-label="Go to collections">
+              <ShoppingBag size={20} strokeWidth={2.2} />
+            </Link>
+          </h4>
         </div>
-      </div>
-    </div>
+      </SiteContainer>
+
+      <SiteContainer
+        id="sub-container"
+        className={`absolute inset-x-0 top-[108px] z-[140] min-h-[calc(100vh-108px)] justify-end bg-[#111318] pt-10 leading-[50px] transition-all duration-500 ${
+          isMenuOpen
+            ? "visible flex opacity-100"
+            : "invisible flex opacity-0 pointer-events-none"
+        }`}
+      >
+        <div className="nav-part-4" />
+        <div className="nav-part-5" />
+        <div className="nav-part-3 pt-0 leading-[50px] max-[1000px]:leading-[40px] space-y-5">
+          {overlayNavItems.map((item) => (
+            <h1
+              className={`cursor-pointer text-end text-3xl sm:text-[50px] font-extrabold uppercase leading-[50px] text-white transition-all duration-500 max-[1000px]:leading-[40px] ${
+                isMenuOpen
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-8 opacity-0"
+              }`}
+              key={item.to}
+              style={{
+                transitionDelay: isMenuOpen
+                  ? `${90 + overlayNavItems.indexOf(item) * 70}ms`
+                  : "0ms",
+              }}
+            >
+              <Link
+                to={item.to}
+                className="overlay-nav-link inline-flex items-center justify-end gap-0"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <span className="overlay-nav-label inline-block">
+                  {item.label}
+                </span>
+                <span className="overlay-nav-arrow inline-flex w-0 overflow-hidden opacity-0">
+                  <ArrowUpRight size={28} strokeWidth={2.2} />
+                </span>
+              </Link>
+            </h1>
+          ))}
+        </div>
+      </SiteContainer>
+    </nav>
   );
 }

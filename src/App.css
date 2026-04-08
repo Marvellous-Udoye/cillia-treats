@@ -2,19 +2,38 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: "ProximaNova";
-  src: url("/fonts/ProximaNova-Regular.otf") format("opentype");
+  font-family: "Futura";
+  src: url("/fonts/futura/FuturaCyrillicBook.ttf") format("truetype");
   font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Futura";
+  src: url("/fonts/futura/Futura-Bold.ttf") format("truetype");
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 @theme {
   --font-head: "DM Serif Display", serif;
+  --color-brand-red: #b5162f;
+  --color-brand-red-deep: #8d1125;
+  --color-brand-red-soft: #f8e9ec;
+}
+
+:root {
+  --brand-color: #b5162f;
 }
 
 body {
-  font-family: "ProximaNova", "Inter", sans-serif;
+  font-family: "Futura", "Inter", sans-serif;
+}
+
+.font-brand {
+  font-family: "Futura", "Inter", sans-serif;
 }
 
 button {
@@ -39,13 +58,13 @@ button {
 }
 
 .quality-bg::before {
-  background: #a6ff007e;
+  background: rgba(181, 22, 47, 0.36);
   top: -200px;
   left: -150px;
 }
 
 .quality-bg::after {
-  background: #00fff783;
+  background: rgba(248, 233, 236, 0.48);
   bottom: -200px;
   right: -150px;
   z-index: 200;

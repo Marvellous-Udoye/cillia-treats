@@ -23,7 +23,7 @@ export default function Footer() {
         <div className="mb-12 flex min-h-16 items-center justify-center md:h-10">
           <p
             key={quoteIndex}
-            className="text-center text-2xl font-semibold font-head uppercase italic tracking-wide text-lime-300 transition-all duration-700 ease-in-out md:text-5xl"
+            className="text-center text-2xl font-semibold font-head uppercase italic tracking-wide text-[#c68c53] transition-all duration-700 ease-in-out md:text-5xl"
             style={{
               animation: "fadeInOut 4.2s ease-in-out infinite",
             }}
@@ -47,19 +47,20 @@ export default function Footer() {
         <div className="mt-10 flex flex-col justify-between gap-10 px-1 text-sm font-medium text-milk md:mt-14 md:flex-row md:px-2 md:text-base">
           <div className="flex flex-col gap-8 md:flex-row md:items-start md:gap-16">
             <div>
-              <p className="mb-3 text-xs uppercase tracking-[0.3em] text-[#d7c1aa]">Browse</p>
+              <p className="mb-3 text-xs uppercase tracking-[0.3em] text-white font-semibold">Browse</p>
               <p>Cakes</p>
               <p>Small Chops</p>
               <p>Pastries</p>
+              <p>Gift Sets</p>
             </div>
             <div>
-              <p className="mb-3 text-xs uppercase tracking-[0.3em] text-[#d7c1aa]">Occasions</p>
+              <p className="mb-3 text-xs uppercase tracking-[0.3em] text-white font-semibold">Occasions</p>
               <p>Birthday Gifts</p>
               <p>Valentine Packages</p>
               <p>Corporate Hampers</p>
             </div>
             <div>
-              <p className="mb-3 text-xs uppercase tracking-[0.3em] text-[#d7c1aa]">Studio</p>
+              <p className="mb-3 text-xs uppercase tracking-[0.3em] text-white font-semibold">Studio</p>
               <p>Souvenirs</p>
               <p>Gift Sets</p>
               <p>Custom Orders</p>
@@ -77,7 +78,7 @@ export default function Footer() {
                 placeholder="Start an order inquiry"
                 className="w-full bg-transparent text-white placeholder:font-sans placeholder:text-[#999999] focus:outline-none"
               />
-              <ArrowRight size={18} className="text-[#d7c1aa]" />
+              <ArrowRight size={18} className="text-[#f3a3b2]" />
             </div>
           </div>
         </div>
