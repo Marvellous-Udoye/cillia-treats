@@ -53,7 +53,7 @@ export default function Header() {
         <div className="nav-part-1 flex flex-col gap-[15px] max-[1000px]:gap-[30px]">
           <Link
             to="/"
-            className={`wordmark flex flex-col font-brand text-[2.25rem] font-bold uppercase leading-[0.9] tracking-[-0.08em] transition-colors duration-300 max-[500px]:text-[1.5rem] ${
+            className={`wordmark flex flex-col font-brand text-[2rem] font-bold uppercase leading-[0.9] tracking-[-0.08em] transition-colors duration-300 max-[500px]:text-[1.5rem] ${
               isMenuOpen ? "text-white" : "text-black"
             }`}
           >
@@ -110,7 +110,7 @@ export default function Header() {
               isMenuOpen ? "text-white" : "text-black"
             }`}
           >
-            <Link to="/collections" aria-label="Go to collections">
+            <Link to="/gift-sets" aria-label="Go to gift sets">
               <ShoppingBag size={20} strokeWidth={2.2} />
             </Link>
           </h4>

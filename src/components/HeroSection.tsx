@@ -158,7 +158,7 @@ export default function HeroSection() {
       <div className="pointer-events-none absolute inset-x-0 top-36 z-0 flex justify-center md:top-36 md:justify-start md:px-20">
         <p
           ref={wordmarkRef}
-          className="font-head text-center text-[3rem] font-semibold uppercase leading-none whitespace-nowrap text-black md:text-left md:text-[9em] 2xl:text-[12em]"
+          className="font-head text-center text-[3rem] font-semibold uppercase leading-none whitespace-nowrap text-black md:text-left md:text-[8.5em] 2xl:text-[12em]"
         >
           Cilla Treats
         </p>
@@ -168,10 +168,10 @@ export default function HeroSection() {
         src="/imgs/hero-bg.png"
         ref={earbudsRef}
         alt="earbuds"
-        className="absolute top-28 z-100 w-[92vw] max-w-[360px] drop-shadow-2xl [filter:drop-shadow(0_18px_34px_rgba(181,22,47,0.26))] md:top-20 md:w-auto md:max-w-none"
+        className="absolute top-28 z-100 w-[92vw] max-w-[360px] drop-shadow-2xl [filter:drop-shadow(0_18px_34px_rgba(181,22,47,0.26))] md:top-28 md:w-auto md:max-w-none"
       />
 
-      <div className="earbud-feature-card absolute left-3 top-[33rem] flex max-w-[182px] items-center gap-2 rounded-2xl bg-white/92 px-3 py-2.5 shadow-[0_16px_40px_rgba(0,0,0,0.08)] md:left-[10%] md:top-80 md:max-w-none md:gap-4 md:bg-transparent md:px-10 md:py-0 md:shadow-none">
+      <div className="earbud-feature-card absolute left-3 top-[33rem] flex max-w-[182px] items-center gap-2 rounded-2xl bg-white/92 px-3 py-2.5 shadow-[0_16px_40px_rgba(0,0,0,0.08)] md:left-[10%] md:top-80 md:max-w-none md:gap-4 md:bg-transparent md:px-10 md:py-4">
         <img
           src="/imgs/earbud-feature-card-1.svg"
           alt="earbud-feature-card-icon"
@@ -184,7 +184,7 @@ export default function HeroSection() {
         </span>
       </div>
 
-      <div className="earbud-feature-card absolute left-4 top-[26.75rem] flex max-w-[190px] items-center gap-2 rounded-2xl bg-white/92 px-3 py-2.5 shadow-[0_16px_40px_rgba(0,0,0,0.08)] md:left-[20%] md:top-120 md:max-w-none md:gap-4 md:bg-transparent md:px-10 md:py-0 md:shadow-none">
+      <div className="earbud-feature-card absolute left-4 top-[26.75rem] flex max-w-[190px] items-center gap-2 rounded-2xl bg-white/92 px-3 py-2.5 shadow-[0_16px_40px_rgba(0,0,0,0.08)] md:left-[16%] md:top-120 md:max-w-none md:gap-4 md:bg-transparent md:px-10 md:py-4">
         <img
           src="/imgs/earbud-feature-card-2.svg"
           alt="earbud-feature-card-icon"
@@ -197,7 +197,7 @@ export default function HeroSection() {
         </span>
       </div>
 
-      <div className="earbud-feature-card absolute right-2 top-[30rem] flex max-w-[188px] items-center gap-2 rounded-2xl bg-white/92 px-3 py-2.5 text-right shadow-[0_16px_40px_rgba(0,0,0,0.08)] md:right-[10%] md:top-90 md:max-w-none md:gap-4 md:bg-transparent md:px-10 md:py-0 md:text-left md:shadow-none">
+      <div className="earbud-feature-card absolute right-2 top-[30rem] flex max-w-[188px] items-center gap-2 rounded-2xl bg-white/92 px-3 py-2.5 text-right shadow-[0_16px_40px_rgba(0,0,0,0.08)] md:right-[10%] md:top-90 md:max-w-none md:gap-4 md:bg-transparent md:px-10 md:py-4 md:text-left">
         <img
           src="/imgs/earbud-feature-card-3.svg"
           alt="earbud-feature-card-icon"
@@ -212,7 +212,7 @@ export default function HeroSection() {
 
       <div className="grid w-full grid-cols-1 gap-10 pb-6 pt-[35rem] md:grid-cols-2 md:px-20 md:pb-24 md:pt-[37rem]">
         <div className="hero-secondary-container flex h-full w-full flex-col items-center gap-5 md:items-start">
-          <h2 className="hero-secondary text-center font-semibold text-[2.85rem] leading-[0.92] md:text-left md:text-7xl md:font-bold">
+          <h2 className="hero-secondary text-center font-semibold text-[2.85rem] leading-[0.92] md:text-left md:text-6xl md:font-bold">
             Styled for gifting,
             <br />
             baked for cravings.
