@@ -17,8 +17,26 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Founders Grotesk";
+  src: url("/fonts/ochi/FoundersGrotesk-Semibold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Neue Montreal";
+  src: url("/fonts/ochi/NeueMontreal-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --font-head: "DM Serif Display", serif;
+  --font-ochi-head: "Founders Grotesk", sans-serif;
+  --font-ochi-body: "Neue Montreal", sans-serif;
   --color-brand-red: #b5162f;
   --color-brand-red-deep: #8d1125;
   --color-brand-red-soft: #f8e9ec;
@@ -28,16 +46,33 @@
   --brand-color: #b5162f;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Futura", "Inter", sans-serif;
+  overscroll-behavior: none;
 }
 
 .font-brand {
   font-family: "Futura", "Inter", sans-serif;
 }
 
+.font-ochi-head {
+  font-family: "Founders Grotesk", sans-serif;
+}
+
+.font-ochi-body {
+  font-family: "Neue Montreal", sans-serif;
+}
+
 button {
   cursor: pointer;
+}
+
+.home-page-flow section {
+  will-change: transform;
 }
 
 .quality-bg {

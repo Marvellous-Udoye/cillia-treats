@@ -23,7 +23,7 @@ export function createHeaderAnimations(
     const overlayNavLinks =
       scope.querySelectorAll<HTMLElement>(".overlay-nav-link");
     const darkSections = gsap.utils.toArray<HTMLElement>(
-      ".Feature2, .zoom-transition, .catalog-pin-section",
+      ".message-content, .order-guide-section, .ochi-reveal",
     );
 
     const detachOverlayNavHover = Array.from(overlayNavLinks).map((link) => {

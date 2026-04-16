@@ -1,13 +1,11 @@
-import Feature from "../components/Feature";
-import Feature2 from "../components/Feature2";
-import HeroSection from "../components/HeroSection";
+import { HomePageContent } from "../components/home-page-content";
+import HeroSection from "../components/hero-section";
 
 export function HomePage() {
   return (
     <>
       <HeroSection />
-      <Feature />
-      <Feature2 />
+      <HomePageContent />
     </>
   );
 }

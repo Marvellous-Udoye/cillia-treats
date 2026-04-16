@@ -1,8 +1,9 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { MoveRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,6 +11,7 @@ export default function HeroSection() {
   const earbudsRef = useRef<HTMLImageElement | null>(null);
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const wordmarkRef = useRef<HTMLParagraphElement | null>(null);
+  const heroLines = ["treats that", "give sweet", "moments"];
 
   useGSAP(() => {
     const mm = gsap.matchMedia();
@@ -147,6 +149,40 @@ export default function HeroSection() {
       },
     );
 
+    gsap.fromTo(
+      ".hero-ochi-title-line",
+      { yPercent: 105 },
+      {
+        yPercent: 0,
+        duration: 1,
+        stagger: 0.12,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: ".hero-ochi-content",
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+      },
+    );
+
+    gsap.fromTo(
+      ".hero-ochi-meta",
+      { opacity: 0, y: 24 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        stagger: 0.08,
+        delay: 0.25,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".hero-ochi-content",
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+      },
+    );
+
     return () => mm.revert();
   }, []);
 
@@ -210,30 +246,48 @@ export default function HeroSection() {
         </span>
       </div>
 
-      <div className="grid w-full grid-cols-1 gap-10 pb-6 pt-[35rem] md:grid-cols-2 md:px-20 md:pb-24 md:pt-[37rem]">
-        <div className="hero-secondary-container flex h-full w-full flex-col items-center gap-5 md:items-start">
-          <h2 className="hero-secondary text-center font-semibold text-[2.85rem] leading-[0.92] md:text-left md:text-6xl md:font-bold">
-            Styled for gifting,
-            <br />
-            baked for cravings.
-          </h2>
-
-          <div className="hero-secondary max-w-[32rem] md:max-w-2xl">
-            <p className="text-center text-[0.96rem] leading-7 text-neutral-700 md:text-left md:text-base">
-              Cilla Treats creates warm, memorable bites for birthdays, office
-              gifting, Valentine surprises, souvenirs, and everyday cravings,
-              from buttercream cakes and doughnuts to parfaits, fries, chicken
-              pies, and curated gift sets.
-            </p>
-          </div>
-
-          <button className="hero-secondary mt-4 flex w-full max-w-56 items-center justify-center gap-2 rounded-full border border-[#b5162f] bg-[#b5162f] px-5 py-3 text-white transition hover:bg-[#8d1125] md:mx-0 md:mt-5 md:w-auto md:max-w-44">
-            Explore Menu <MoveRight size={18} />
-          </button>
+      <section className="hero-ochi-content w-full bg-[#fffdfa] pt-[40rem] text-[#1f1713] md:min-h-screen md:pt-[31rem]">
+        <div className="px-5 md:px-10">
+          {heroLines.map((line, index) => (
+            <div className="overflow-hidden" key={line}>
+              <div className="flex w-fit items-center">
+                {index === 1 ? (
+                  <div className="hero-ochi-title-line relative mr-[1vw] h-[11vw] w-[16vw] rounded-md bg-[#b5162f] md:h-[5.6vw] md:w-[8vw]" />
+                ) : null}
+                <h1 className="hero-ochi-title-line font-ochi-head text-[19vw] uppercase leading-[0.75] tracking-[-0.04em] md:text-[9vw]">
+                  {line}
+                </h1>
+              </div>
+            </div>
+          ))}
         </div>
 
-        <div className="hidden md:block" />
-      </div>
+        <div className="mt-16 flex flex-col gap-5 border-t border-black/10 px-5 py-5 md:mt-24 md:flex-row md:items-center md:justify-between md:px-10">
+          <p className="hero-ochi-meta font-brand text-base leading-none md:text-lg">
+            Cillia Treats
+          </p>
+          <p className="hero-ochi-meta max-w-xl font-brand text-base leading-6 text-[#4d4139] md:text-lg">
+            Cakes, small chops, pastries, hampers, souvenirs, and gift sets
+            made for birthdays, office orders, Valentine surprises, and every
+            table worth celebrating.
+          </p>
+          <div className="hero-ochi-meta flex items-center gap-2">
+            <Link
+              to="/#featured-products"
+              className="rounded-full border border-[#b5162f] bg-[#b5162f] px-5 py-3 font-brand text-sm uppercase text-white"
+            >
+              Visit menu
+            </Link>
+            <Link
+              to="/#ready-order"
+              aria-label="Start an order"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-[#b5162f] text-[#b5162f]"
+            >
+              <ArrowUpRight size={18} />
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

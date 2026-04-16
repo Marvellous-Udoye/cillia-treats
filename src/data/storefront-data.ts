@@ -4,16 +4,16 @@ export type NavItem = {
 };
 
 export const primaryNavItems: NavItem[] = [
-  { to: "/cakes", label: "Cakes" },
-  { to: "/pastries", label: "Pastries" },
-  { to: "/gift-sets", label: "Gift Sets" },
-  { to: "/", label: "Orders" },
+  { to: "/#celebration-cakes", label: "Cakes" },
+  { to: "/#featured-products", label: "Small Chops" },
+  { to: "/#ready-order", label: "Gift Set" },
+  { to: "/#ready-order", label: "Order" },
 ];
 
 export const overlayNavItems: NavItem[] = [
   { to: "/", label: "Home" },
-  { to: "/cakes", label: "Cakes" },
-  { to: "/pastries", label: "Pastries" },
-  { to: "/gift-sets", label: "Gift Sets" },
-  { to: "/", label: "Orders" },
+  { to: "/#celebration-cakes", label: "Cakes" },
+  { to: "/#featured-products", label: "Small Chops" },
+  { to: "/#ready-order", label: "Gift Set" },
+  { to: "/#ready-order", label: "Order" },
 ];

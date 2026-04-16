@@ -1,5 +1,5 @@
 import { useGSAP } from "@gsap/react";
-import { ArrowUpRight, Menu, ShoppingBag } from "lucide-react";
+import { ArrowUpRight, Menu, MessageCircle } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { createHeaderAnimations } from "../animation";
@@ -105,13 +105,13 @@ export default function Header() {
           </h4>
 
           <h4
-            id="shop"
+            id="message"
             className={`cursor-pointer text-[20px] transition-colors duration-300 ${
               isMenuOpen ? "text-white" : "text-black"
             }`}
           >
-            <Link to="/gift-sets" aria-label="Go to gift sets">
-              <ShoppingBag size={20} strokeWidth={2.2} />
+            <Link to="/gift-sets" aria-label="Message Cilla Treats">
+              <MessageCircle size={18} strokeWidth={2.2} />
             </Link>
           </h4>
         </div>
