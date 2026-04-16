@@ -1,35 +1,15 @@
-import { useEffect, useState } from "react";
 import { ArrowRight, Instagram, Mail, PhoneCall } from "lucide-react";
 
 export default function Footer() {
-  const [quoteIndex, setQuoteIndex] = useState(0);
-
-  const quotes = [
-    "Baked for your sweetest moments.",
-    "Giftable treats for every celebration.",
-    "Small chops, cakes, pastries, and more.",
-  ];
-
-  useEffect(() => {
-    const quoteTimer = setInterval(() => {
-      setQuoteIndex((prev) => (prev + 1) % quotes.length);
-    }, 4200);
-    return () => clearInterval(quoteTimer);
-  }, [quotes.length]);
-
   return (
     <footer className="w-full overflow-hidden bg-[#0a0c10] py-14 text-gray-300 md:py-20">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <div className="mb-12 flex min-h-16 items-center justify-center md:h-10">
-          <p
-            key={quoteIndex}
-            className="font-head text-center text-2xl font-semibold uppercase italic tracking-wide text-[#c68c53] transition-all duration-700 ease-in-out md:text-5xl"
-            style={{
-              animation: "fadeInOut 4.2s ease-in-out infinite",
-            }}
-          >
-            {quotes[quoteIndex]}
-          </p>
+        <p
+          className="text-white font-head text-center text-[3rem] font-semibold uppercase leading-none whitespace-nowrap text-black md:text-left md:text-[8.5em] 2xl:text-[12em]"
+        >
+          Cilla Treats
+        </p>
         </div>
 
         <div className="relative z-10 mt-5 flex justify-center gap-4 md:mt-16">

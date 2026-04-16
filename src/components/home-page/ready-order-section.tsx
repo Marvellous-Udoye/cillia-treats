@@ -10,7 +10,7 @@ export function ReadyOrderSection() {
       style={{ backgroundColor: homePageSoftSurface }}
     >
       <div className="relative flex min-h-[80vh] flex-col items-center justify-center px-5 pt-20 text-center">
-        <h2 className="font-head text-[21vw] font-medium uppercase leading-[0.75] md:text-[12vw]">
+        <h2 className="font-head text-[18vw] font-medium uppercase leading-[0.75] md:text-[12vw]">
           Ready
           <br />
           to place
@@ -19,7 +19,7 @@ export function ReadyOrderSection() {
         </h2>
       </div>
 
-      <div className="flex flex-col items-center gap-5 pb-20">
+      <div className="flex flex-col items-center gap-3 sm:gap-5 pb-20">
         <Link
           to="/#ready-order"
           className="inline-flex items-center gap-5 rounded-full border border-[#b5162f] bg-[#b5162f] px-6 py-4 font-brand text-sm uppercase text-white"

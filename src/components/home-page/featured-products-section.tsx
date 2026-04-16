@@ -17,7 +17,7 @@ export function FeaturedProductsSection() {
       className="relative z-10 rounded-3xl bg-[#fffdfa] pb-10 text-[#1f1713]"
     >
       <div className="border-b border-black/10 px-5 py-10 md:px-10">
-        <h2 className="font-brand uppercase text-[12vw] leading-none md:text-6xl">
+        <h2 className="font-brand uppercase font-semibold text-[12vw] leading-none md:text-6xl">
           Catalouge
         </h2>
       </div>
