@@ -22,15 +22,15 @@ export const messageSectionCopy = {
 
 export const orderSteps = [
   {
-    title: "Browse the catalogue",
+    title: "Browse catalogue",
     copy: "Move through the featured cakes, pastries, small chops, hampers, and gift sets, then pick the items that fit your event or surprise.",
   },
   {
-    title: "Message us on WhatsApp",
+    title: "Contact us",
     copy: "Send your preferred items, delivery date, quantity, and any custom note so the order can be confirmed quickly.",
   },
   {
-    title: "Confirm and receive",
+    title: "Recieve and confirm",
     copy: "We confirm availability, package the order beautifully, and prepare it for pickup, delivery, gifting, or celebration tables.",
   },
 ];
@@ -138,7 +138,7 @@ export const products: HomeProduct[] = [
   },
   {
     image: "/imgs/cake-13.jpg",
-    name: "Signature Cillia Cake",
+    name: "Signature Cilla Cake",
     note: "Custom bakery style",
     price: "From N32,000",
   },

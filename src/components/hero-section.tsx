@@ -264,7 +264,7 @@ export default function HeroSection() {
 
         <div className="mt-16 flex flex-col gap-5 border-t border-black/10 px-5 py-5 md:mt-24 md:flex-row md:items-center md:justify-between md:px-10">
           <p className="hero-ochi-meta font-brand text-base leading-none md:text-lg">
-            Cillia Treats
+            Cilla Treats
           </p>
           <p className="hero-ochi-meta max-w-xl font-brand text-base leading-6 text-[#4d4139] md:text-lg">
             Cakes, small chops, pastries, hampers, souvenirs, and gift sets
