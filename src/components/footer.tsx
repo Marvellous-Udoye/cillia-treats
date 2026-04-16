@@ -14,7 +14,7 @@ export default function Footer() {
 
         <div className="relative z-10 mt-5 flex justify-center gap-4 md:mt-16">
           <a
-            href="#"
+            href="https://www.instagram.com/Cilla_treats"
             className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/6 text-white transition hover:-translate-y-1 hover:bg-white/10"
           >
             <Instagram size={18} />
