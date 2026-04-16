@@ -107,7 +107,7 @@ export function FeaturedProductsSection() {
             </h3>
           </div>
           <p className="absolute bottom-5 left-5 rounded-full border-2 border-[#fffdfa] px-4 py-2 font-brand text-[#fffdfa]">
-            Cakes, pastries, small chops, hampers, and gift sets
+            Cakes, pastries, small chops, and gift sets
           </p>
         </div>
 

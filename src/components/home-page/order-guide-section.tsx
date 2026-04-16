@@ -45,7 +45,7 @@ export function OrderGuideSection() {
 
         <div className="order-guide-image-wrap h-[58vh] overflow-hidden rounded-3xl md:sticky md:top-24 md:h-[76vh]">
           <img
-            src="/imgs/main.webp"
+            src="https://res.cloudinary.com/ds6nd4lbj/image/upload/q_auto/f_auto/v1776364101/main_pcbwka.webp"
             alt="Packaged Cilla Treats order"
             className="order-guide-image ochi-parallax h-full w-full object-cover"
           />

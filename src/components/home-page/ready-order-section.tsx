@@ -21,10 +21,10 @@ export function ReadyOrderSection() {
 
       <div className="flex flex-col items-center gap-3 sm:gap-5 pb-20">
         <Link
-          to="/#ready-order"
+          to="https://wa.me/2347042106683"
           className="inline-flex items-center gap-5 rounded-full border border-[#b5162f] bg-[#b5162f] px-6 py-4 font-brand text-sm uppercase text-white"
         >
-          Place your order <Circle size={12} fill="currentColor" />
+          Place order <Circle size={12} fill="currentColor" />
         </Link>
         <p className="font-brand">OR</p>
         <Link
