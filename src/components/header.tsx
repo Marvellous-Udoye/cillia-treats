@@ -110,7 +110,7 @@ export default function Header() {
               isMenuOpen ? "text-white" : "text-black"
             }`}
           >
-            <Link to="/gift-sets" aria-label="Message Cilla Treats">
+            <Link to="https://wa.me/2347042106683" aria-label="Message Cilla Treats">
               <MessageCircle size={18} strokeWidth={2.2} />
             </Link>
           </h4>

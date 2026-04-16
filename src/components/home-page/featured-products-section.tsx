@@ -1,5 +1,4 @@
 import {
-  galleryItems,
   homePageAccent,
   products,
   showcaseDetails,
@@ -7,9 +6,73 @@ import {
 import { FeaturedProductPair } from "./featured-product-pair";
 
 export function FeaturedProductsSection() {
-  const firstPair = products.slice(0, 2);
-  const secondPair = products.slice(2, 4);
-  const cards = products.slice(4, 6);
+  const productPairs = Array.from(
+    { length: Math.ceil(products.length / 2) },
+    (_, index) => products.slice(index * 2, index * 2 + 2),
+  );
+
+  const getProductTags = (name: string) => {
+    const lowerName = name.toLowerCase();
+
+    if (lowerName.includes("cupcake")) {
+      return ["Cupcakes", "Giftable bites", "Buttercream"];
+    }
+
+    if (lowerName.includes("gift") || lowerName.includes("hamper")) {
+      return ["Gift sets", "Beautifully packed", "Corporate ready"];
+    }
+
+    if (
+      lowerName.includes("chops") ||
+      lowerName.includes("pie") ||
+      lowerName.includes("fries") ||
+      lowerName.includes("bites")
+    ) {
+      return ["Small chops", "Party platters", "Event-ready"];
+    }
+
+    if (lowerName.includes("banana")) {
+      return ["Banana bread", "Tea-time loaf", "Soft crumb"];
+    }
+
+    if (lowerName.includes("parfait")) {
+      return ["Parfait", "Layered dessert", "Cold cup"];
+    }
+
+    if (lowerName.includes("doughnut")) {
+      return ["Doughnuts", "Milky finish", "Soft batch"];
+    }
+
+    return ["Celebration cakes", "Buttercream", "Custom finish"];
+  };
+
+  const getPairAnchor = (pair: typeof productPairs[number], index: number) => {
+    const pairNames = pair.map((product) => product.name.toLowerCase()).join(" ");
+
+    if (index === 0) return "cakes";
+    if (pairNames.includes("gift")) return "gift-sets";
+    if (
+      pairNames.includes("chops") ||
+      pairNames.includes("pie") ||
+      pairNames.includes("fries") ||
+      pairNames.includes("bites")
+    ) {
+      return "small-chops";
+    }
+    if (
+      pairNames.includes("banana") ||
+      pairNames.includes("parfait") ||
+      pairNames.includes("doughnut")
+    ) {
+      return undefined;
+    }
+
+    if (pairNames.includes("pastry") || pairNames.includes("pastries")) {
+      return "pastries";
+    }
+
+    return undefined;
+  };
 
   return (
     <section
@@ -22,25 +85,19 @@ export function FeaturedProductsSection() {
         </h2>
       </div>
 
-      {firstPair.length === 2 ? (
-        <FeaturedProductPair
-          accent={homePageAccent}
-          left={firstPair[0]}
-          leftTags={showcaseDetails[0]}
-          right={firstPair[1]}
-          rightTags={showcaseDetails[1]}
-        />
-      ) : null}
-
-      {secondPair.length === 2 ? (
-        <FeaturedProductPair
-          accent={homePageAccent}
-          left={secondPair[0]}
-          leftTags={galleryItems.slice(0, 3).map((item) => item.label)}
-          right={secondPair[1]}
-          rightTags={galleryItems.slice(1, 4).map((item) => item.label)}
-        />
-      ) : null}
+      {productPairs.map((pair, index) =>
+        pair.length === 2 ? (
+          <div id={getPairAnchor(pair, index)} key={`${pair[0].name}-${pair[1].name}`}>
+            <FeaturedProductPair
+              accent={homePageAccent}
+              left={pair[0]}
+              leftTags={index === 0 ? showcaseDetails[0] : getProductTags(pair[0].name)}
+              right={pair[1]}
+              rightTags={index === 0 ? showcaseDetails[1] : getProductTags(pair[1].name)}
+            />
+          </div>
+        ) : null,
+      )}
 
       <div className="ochi-reveal grid gap-4 px-5 py-12 md:grid-cols-2 md:px-10">
         <div className="relative min-h-[46vh] rounded-xl bg-[#8d1125] p-6 md:min-h-[55vh]">
@@ -50,12 +107,12 @@ export function FeaturedProductsSection() {
             </h3>
           </div>
           <p className="absolute bottom-5 left-5 rounded-full border-2 border-[#fffdfa] px-4 py-2 font-brand text-[#fffdfa]">
-            Celebration Cakes
+            Cakes, pastries, small chops, hampers, and gift sets
           </p>
         </div>
 
         <div className="grid gap-4 md:grid-cols-2">
-          {cards.map((card) => (
+          {products.slice(4, 6).map((card) => (
             <article
               className="relative min-h-[46vh] overflow-hidden rounded-xl bg-[#181312] md:min-h-[55vh]"
               key={card.name}

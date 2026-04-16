@@ -20,13 +20,13 @@ export default function Footer() {
             <Instagram size={18} />
           </a>
           <a
-            href="#"
+            href="tel:+2347042106683"
             className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/6 text-white transition hover:-translate-y-1 hover:bg-white/10"
           >
             <PhoneCall size={18} />
           </a>
           <a
-            href="#"
+            href="mailto:cillatreats@gmail.com"
             className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/6 text-white transition hover:-translate-y-1 hover:bg-white/10"
           >
             <Mail size={18} />
