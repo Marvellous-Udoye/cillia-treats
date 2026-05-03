@@ -201,9 +201,9 @@ export default function HeroSection() {
       </div>
 
       <img
-        src="/imgs/hero-bg.png"
+        src="https://res.cloudinary.com/ds6nd4lbj/image/upload/v1777810266/hero-bg_y4ffcq.png"
         ref={earbudsRef}
-        alt="earbuds"
+        alt="Cilla Treats"
         className="absolute top-28 z-100 w-[92vw] max-w-[360px] drop-shadow-2xl [filter:drop-shadow(0_18px_34px_rgba(181,22,47,0.26))] md:top-28 md:w-auto md:max-w-none"
       />
 

@@ -286,4 +286,22 @@ export const products: HomeProduct[] = [
     note: "Classic soft finish",
     price: "From N5,500",
   },
+  {
+    image: "https://res.cloudinary.com/ds6nd4lbj/image/upload/v1777808725/wedding-cake-1_bao6of.jpg",
+    name: "Elegant Wedding Cake",
+    note: "Tiered celebration masterpiece",
+    price: "From N45,000",
+  },
+  {
+    image: "https://res.cloudinary.com/ds6nd4lbj/image/upload/v1777808761/wedding-cake-2_olz8kp.jpg",
+    name: "Classic Wedding Cake",
+    note: "Traditional tiered design",
+    price: "From N40,000",
+  },
+  {
+    image: "https://res.cloudinary.com/ds6nd4lbj/image/upload/v1777808817/wedding-cake-3_i0vlaa.jpg",
+    name: "Luxury Wedding Cake",
+    note: "Premium tiered centerpiece",
+    price: "From N55,000",
+  },
 ];
